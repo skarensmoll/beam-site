@@ -43,9 +43,10 @@ $(document).ready(function() {
                 var _self = this;
                 var sectionNavEl = $("." + idSectionNav);
                 var sectionNavHeight = $(sectionNavEl).height();
+                var containerMainContent = $(".container-main-content");
 
-                $(".container-main-content").css({"min-height": sectionNavHeight});
-                $(".section-nav").css({"max-height": $(".container-main-content").height()});
+                containerMainContent.css({"min-height": sectionNavHeight});
+                $(".section-nav").css({"max-height": containerMainContent.height()});
 
                 $(window).resize(function() {
                     if($(window).width() > CONST.DESKTOP_BREAKPOINT) {
