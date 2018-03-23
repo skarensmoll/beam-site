@@ -218,6 +218,26 @@ push. You'll run:
 
 	$ git push <GitHub_user> <my-branch> --force
 
+### Building
+
+#### Python SDK
+
+Before testing SDK code changes remotely, you must build the Beam tarball. From
+the root of the git repository, run:
+
+```
+cd sdks/python/
+python setup.py sdist
+```
+
+Pass the `--sdk_location` flag to use the newly built version. For example:
+
+```
+python setup.py sdist > /dev/null && \
+    python -m apache_beam.examples.wordcount ... \
+        --sdk_location dist/apache-beam-2.5.0.dev0.tar.gz
+```
+
 ### Testing
 
 All code should have appropriate unit testing coverage. New code should have
@@ -248,7 +268,8 @@ To Check for lint errors locally, install "tox" package and run following
 command.
 
     $ pip install tox
-    $ tox -e lint
+    $ tox -e lint_py2,lint_py3
+
 
 Beam supports running Python SDK tests using Maven. For this, navigate to root
 directory of your Apache Beam clone and execute following command. Currently

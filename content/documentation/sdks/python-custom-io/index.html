@@ -91,7 +91,7 @@
   <span class="section-nav-list-title">Java SDK</span>
   <ul class="section-nav-list">
     <li><a href="/documentation/sdks/java/">Java SDK overview</a></li>
-    <li><a href="/documentation/sdks/javadoc/2.2.0/" target="_blank">Java SDK API reference <img src="/images/external-link-icon.png"
+    <li><a href="/documentation/sdks/javadoc/2.4.0/" target="_blank">Java SDK API reference <img src="/images/external-link-icon.png"
                                                                                                                                    width="14" height="14"
                                                                                                                                    alt="External link."></a>
     </li>
@@ -104,7 +104,7 @@
   <span class="section-nav-list-title">Python SDK</span>
   <ul class="section-nav-list">
     <li><a href="/documentation/sdks/python/">Python SDK overview</a></li>
-    <li><a href="/documentation/sdks/pydoc/2.2.0/" target="_blank">Python SDK API reference <img src="/images/external-link-icon.png"
+    <li><a href="/documentation/sdks/pydoc/2.4.0/" target="_blank">Python SDK API reference <img src="/images/external-link-icon.png"
                                                                                                                                    width="14" height="14"
                                                                                                                                    alt="External link."></a>
     </li>
@@ -510,7 +510,10 @@
     table_name = 'table' + uid
     return SimpleKVWriter(self._simplekv, access_token, table_name)
 
-  def finalize_write(self, access_token, table_names):
+  def pre_finalize(self, init_result, writer_results):
+    pass
+
+  def finalize_write(self, access_token, table_names, pre_finalize_result):
     for i, table_name in enumerate(table_names):
       self._simplekv.rename_table(
           access_token, table_name, self._final_table_name + str(i))

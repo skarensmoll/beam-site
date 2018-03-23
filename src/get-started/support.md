@@ -71,4 +71,5 @@ You can find answers to many questions about [Beam on Stack Overflow](http://sta
 
 ## Beam Slack Channel
 
-You can participate in discussions and ask questions on the [Beam Slack Channel](https://apachebeam.slack.com/).
+You can participate in discussions and ask questions on the [Beam Slack Channel](https://s.apache.org/beam-slack-channel).
+[Join](https://s.apache.org/slack-invite) the discussion now.
